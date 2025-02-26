@@ -1,0 +1,37 @@
+# =============== #
+# Unity generated #
+# =============== #
+
+# User-specific files
+UserSettings/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Mac
+.DS_Store
+
+# Linux
+.directory
+
+# Build results
+[Bb]uild/
+[Bb]uilds/
+
+# User-specific files
+.vs/
+.vscode/
+.idea/
+
+# Unity
+.unitypackage
+
+# Cache
+Library/
+Temp/
+Obj/
+Build/
+
+# Logs
+Logs/
