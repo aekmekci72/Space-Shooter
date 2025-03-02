@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
     public float boundaryOffset = 0.5f;
     private float minX;
     private float maxX;
+    public GameObject bulletPrefab;
+    public Transform[] firePoints;
+    public float fireRate = 0.5f;
+    private float nextFireTime = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,13 +45,17 @@ public class PlayerController : MonoBehaviour
 
     void CheckShoot()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+    if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextFireTime)
         {
             Shoot();
+            nextFireTime= Time.time + fireRate;
         }
     }
     void Shoot()
     {
-        Debug.Log("shoot");
+        foreach (Transform firePoint in firePoints)
+        {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        }   
     }
 }
