@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2214020461829359665}
   - component: {fileID: 5182502905895572850}
   - component: {fileID: 109096251574951671}
+  - component: {fileID: -91478036160658769}
   m_Layer: 0
   m_Name: ufoRed
   m_TagString: Untagged
@@ -97,3 +98,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b16a723aa884d7a9203083cc36a8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-91478036160658769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2673548207724932983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1ea7275c4f247179c46e0876dbf04c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  boundaryOffset: 0.5
+  ebulletPrefab: {fileID: 2570339335385271310, guid: 5bd751c19b44146458c2ea2c88f01a5e, type: 3}
+  firePoints: []
+  fireRate: 0.5
