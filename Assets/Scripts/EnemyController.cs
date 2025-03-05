@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPosition = transform.position + new Vector3(0f, moveSpeed*Time.deltaTime, 0f);
+        Vector3 newPosition = transform.position + new Vector3(0f, -moveSpeed*Time.deltaTime, 0f);
         newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
         transform.position = newPosition;
         CheckShoot();
