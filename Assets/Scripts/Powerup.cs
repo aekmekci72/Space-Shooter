@@ -14,8 +14,13 @@ public abstract class Powerup : MonoBehaviour
             if (player != null)
             {
                 player.AddPowerup(this);
-                gameObject.SetActive(false);
+                Hide();
             }
         }
+    }
+    private void Hide()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
     }
 }

@@ -10,13 +10,14 @@ public class Shield : Powerup
     public override void ApplyEffect(PlayerController player)
     {
         player.takingDamage = false;
-        shieldCoroutine = StartCoroutine(DeactivateShieldAfterDuration(player));
+        player.StartCoroutine(DeactivateShieldAfterDuration(player));
     }
 
     private IEnumerator DeactivateShieldAfterDuration(PlayerController player)
     {
         yield return new WaitForSeconds(shieldDuration);
-        DeactivateShield(player);
+        player.takingDamage = true;
+        Destroy(gameObject);
     }
     public override void RemoveEffect(PlayerController player)
     {
@@ -24,10 +25,12 @@ public class Shield : Powerup
         {
             StopCoroutine(shieldCoroutine);
         }
+        Debug.Log("here2");
         DeactivateShield(player);
     }
     private void DeactivateShield(PlayerController player)
     {
         player.takingDamage = true;
+        Destroy(gameObject);
     }
 }

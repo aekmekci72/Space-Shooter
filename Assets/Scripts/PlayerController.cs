@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public Transform[] firePoints;
     public float fireRate = 0.5f;
     private float nextFireTime = 0f;
+    public bool takingDamage =true;
+    private List<Powerup> activePowerups = new List<Powerup>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,5 +60,28 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         }   
+    }
+    public void AddPowerup(Powerup powerup)
+    {
+        activePowerups.Add(powerup);
+        Debug.Log("here");
+        powerup.ApplyEffect(this);
+    }
+    public void RemovePowerup(Powerup powerup)
+    {
+        if (activePowerups.Contains(powerup))
+        {
+            activePowerups.Remove(powerup);
+            powerup.RemoveEffect(this);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        foreach (Powerup powerup in activePowerups)
+        {
+            powerup.RemoveEffect(this);
+        }
+        activePowerups.Clear();
     }
 }
