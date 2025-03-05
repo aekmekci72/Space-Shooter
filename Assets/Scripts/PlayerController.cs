@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float nextFireTime = 0f;
     public bool takingDamage =true;
     private List<Powerup> activePowerups = new List<Powerup>();
+    public float health = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +65,6 @@ public class PlayerController : MonoBehaviour
     public void AddPowerup(Powerup powerup)
     {
         activePowerups.Add(powerup);
-        Debug.Log("here");
         powerup.ApplyEffect(this);
     }
     public void RemovePowerup(Powerup powerup)

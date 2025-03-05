@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2451619628830464706}
   - component: {fileID: -5072390041228845306}
   - component: {fileID: -849088119901603260}
+  - component: {fileID: 4100612510114684842}
   m_Layer: 0
   m_Name: pill_red
   m_TagString: Untagged
@@ -158,3 +159,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4100612510114684842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7440625276755255856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a32c89c158bad4f87553b26e0e4f9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthIncrease: 0.25
