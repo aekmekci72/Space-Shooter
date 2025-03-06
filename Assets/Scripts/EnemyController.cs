@@ -49,6 +49,7 @@ public class EnemyController : MonoBehaviour
     {
         foreach (Transform firePoint in firePoints)
         {
+            firePoint.position = transform.position;
             Instantiate(ebulletPrefab, firePoint.position, firePoint.rotation);
         }   
     }
