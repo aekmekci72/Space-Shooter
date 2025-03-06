@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        Vector3 randomPosition = new Vector3(Random.Range(-10, 10), 5, 0);
+        Vector3 randomPosition = new Vector3(Random.Range(-4f, 4f), 5.5f, 0);
         EnemyType randomType = (EnemyType)Random.Range(0, 2);
         enemyFactory.CreateEnemy(randomType, randomPosition);
     }
