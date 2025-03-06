@@ -36,7 +36,6 @@ public class EnemyController : MonoBehaviour
         maxY = screenBounds.y - boundaryOffset;
     }
 
-
     void CheckShoot()
     {
     if (Time.time >= nextFireTime)

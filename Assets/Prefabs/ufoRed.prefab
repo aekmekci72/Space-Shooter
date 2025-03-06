@@ -115,5 +115,4 @@ MonoBehaviour:
   ebulletPrefab: {fileID: 2570339335385271310, guid: 5bd751c19b44146458c2ea2c88f01a5e, type: 3}
   firePoints:
   - {fileID: 4868229525657538795, guid: b612e704b7cd3468ba74003e6d7e4a1e, type: 3}
-  - {fileID: 4868229525657538795, guid: be3ca8e88ab7e4b1b871e2539aa0f932, type: 3}
   fireRate: 0.5
