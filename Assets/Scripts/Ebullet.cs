@@ -30,6 +30,10 @@ public class Ebullet : MonoBehaviour
         if (player != null)
         {
             player.health -= (float)0.05;
+            if (player.health<=0)
+            {
+                Debug.Log("player dead");
+            }
 
             Destroy(gameObject);
         }
