@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyRed : Enemy
 {
-    public override void Initialize()
+    public void Initialize()
     {
         Debug.Log("EnemyRed Spawned");
     }

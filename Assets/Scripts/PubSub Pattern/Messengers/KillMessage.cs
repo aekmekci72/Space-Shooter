@@ -1,14 +1,13 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-// public class KillMessage : Message
-// {
-       // will need to create an actor abstract class and an enum actorType
-//     public Actor.actorType shipKilled;
+public class KillMessage : Message
+{
+    public EnemyType enemyKilled;
 
-//     public KillMessage(Actor.actorType enemyKilled)
-//     {
-//         this.enemyKilled = enemyKilled;
-//     }
-// }
+    public KillMessage(EnemyType enemyKilled)
+    {
+        this.enemyKilled = enemyKilled;
+    }
+}

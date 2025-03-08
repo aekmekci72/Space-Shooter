@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KillMessenger : Messenger<KillMessage>
+public class SpawnMessenger : Messenger<KillMessage>
 {
     private passMessage receivers;
     

@@ -5,16 +5,31 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public EnemyFactory enemyFactory;
+    public float spawnInterval = 5f;
 
-    public void SpawnEnemy()
+    private void OnEnable()
     {
-        Vector3 randomPosition = new Vector3(Random.Range(-2.5f, 2.5f), 5.5f, 0);
-        EnemyType randomType = (EnemyType)Random.Range(0, 2);
-        enemyFactory.CreateEnemy(randomType, randomPosition);
+        MessageManager.Instance.spawnMessenger.Subscribe(StartSpawning);
     }
 
-    void Start()
+    private void OnDisable()
     {
-        InvokeRepeating(nameof(SpawnEnemy), 1f, 4f);
+        MessageManager.Instance.spawnMessenger.Unsubscribe(StartSpawning);
+    }
+
+    void StartSpawning(SpawnMessage msg)
+    {
+        StartCoroutine(SpawnWave(msg.waveNumber));
+    }
+
+    IEnumerator SpawnWave(int waveNumber)
+    {
+        for (int i = 0; i < waveNumber + 4; i++)
+        {
+            Vector3 spawnPosition = new Vector3(Random.Range(-2.5f, 2.5f), 5.5f, 0);
+            EnemyType randomType = (EnemyType)Random.Range(0, 2);
+            enemyFactory.CreateEnemy(randomType, spawnPosition);
+            yield return new WaitForSeconds(spawnInterval);
+        }
     }
 }

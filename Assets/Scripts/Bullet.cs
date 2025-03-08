@@ -30,8 +30,7 @@ public class Bullet : MonoBehaviour
         EnemyController enemy = collision.GetComponent<EnemyController>();
         if (enemy != null)
         {
-            Destroy(collision.gameObject);
-
+            enemy.Die();
             Destroy(gameObject);
         }
     }

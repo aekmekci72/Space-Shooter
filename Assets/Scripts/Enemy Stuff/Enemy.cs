@@ -4,5 +4,11 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour 
 {
-    public abstract void Initialize();
+    public EnemyType enemyType; // Assign this in Inspector
+
+    public void Die()
+    {
+        MessageManager.Instance.killMessenger.SendMessage(new KillMessage(enemyType));
+        Destroy(gameObject);
+    }
 }
