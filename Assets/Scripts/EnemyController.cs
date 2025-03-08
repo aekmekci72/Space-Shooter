@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public Transform[] firePoints;
     public float fireRate = 0.5f;
     private float nextFireTime = 0f;
+    Vector3 screenBounds;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,17 +26,20 @@ public class EnemyController : MonoBehaviour
         newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
         transform.position = newPosition;
         CheckShoot();
+        if (transform.position.y <= minY)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void CalculateScreenBoundaries()
     {
         Camera mainCamera = Camera.main;
-        Vector3 screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
+        screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         
         minY = -screenBounds.y + boundaryOffset;
         maxY = screenBounds.y - boundaryOffset;
     }
-
 
     void CheckShoot()
     {
@@ -49,6 +53,7 @@ public class EnemyController : MonoBehaviour
     {
         foreach (Transform firePoint in firePoints)
         {
+            firePoint.position = transform.position;
             Instantiate(ebulletPrefab, firePoint.position, firePoint.rotation);
         }   
     }
