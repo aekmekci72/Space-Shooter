@@ -5,12 +5,12 @@ using UnityEngine;
 public class StatTracker : Singleton<StatTracker>
 {
     // add more here
-    public int EnemiesKilled { get; private set; }
+    public int EnemiesSpawned { get; private set; }
 
     public void Start()
     {
         // MessageManager.Instance.killMessenger.Subscribe(KilledEvent);
-        // MessageManager.Instance.spawnMessenger.Subscribe(SpawnEvent);
+        MessageManager.Instance.spawnMessenger.Subscribe(SpawnEvent);
         // MessageManager.Instance.levelMessenger.Subscribe(LevelClearedEvent);
     }
 
@@ -36,21 +36,18 @@ public class StatTracker : Singleton<StatTracker>
     // }
 
 
-    // public void SpawnEvent(SpawnMessage message)
-    // {
-        // if (message.creatureSpawned == Actor.actorType.worker)
+    public void SpawnEvent(SpawnMessage message)
+    {
+        EnemiesSpawned++;
+        // if (message.enemySpawned == Enemy)
         // {
-        //     WorkersSpawned++;
-        // }
-        // else if (message.creatureSpawned == Actor.actorType.zombie)
-        // {
-        //     ZombiesSpawned++;
+        //     EnemiesSpawned++;
         // }
         // else
         // {
         //     Debug.Log("Invalid state " + message + "received in SpawnEvent");
         // }
-    // }
+    }
 
 
     // public void LevelClearedEvent(LevelClearedMessage message)
