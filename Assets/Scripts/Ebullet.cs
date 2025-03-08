@@ -24,4 +24,18 @@ public class Ebullet : MonoBehaviour
         }
     
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerController player = collision.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.health -= (float)0.05;
+            if (player.health<=0)
+            {
+                Debug.Log("player dead");
+            }
+
+            Destroy(gameObject);
+        }
+    }
 }
