@@ -26,6 +26,7 @@ public class Ebullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("here");
         PlayerController player = collision.GetComponent<PlayerController>();
         if (player != null)
         {
