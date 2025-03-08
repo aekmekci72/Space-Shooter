@@ -27,9 +27,10 @@ public class Ebullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController player = collision.GetComponent<PlayerController>();
+        Debug.Log("bullet hit player");
         if (player != null)
         {
-            player.health -= (float)0.05;
+            player.health -= (float)1;
             if (player.health<=0)
             {
                 Debug.Log("player dead");

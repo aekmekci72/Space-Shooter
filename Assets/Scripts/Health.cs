@@ -8,7 +8,7 @@ public class Health : Powerup
 
     public override void ApplyEffect(PlayerController player)
     {
-        player.health = Mathf.Min(player.health + healthIncrease, 1f);
+        player.health = Mathf.Min(player.health + healthIncrease, 20f);
         Destroy(gameObject); 
     }
 
