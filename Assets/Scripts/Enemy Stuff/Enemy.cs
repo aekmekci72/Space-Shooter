@@ -9,7 +9,7 @@ public abstract class Enemy : MonoBehaviour
 
     void Start()
     {
-        
+        // MessageManager.Instance.spawnMessenger.SendMessage(new SpawnMessage(enemyType));
         powerupSpawner = FindObjectOfType<PowerupSpawner>();
     }
     public void Die()

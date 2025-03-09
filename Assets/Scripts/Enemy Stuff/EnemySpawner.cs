@@ -38,8 +38,6 @@ public class EnemySpawner : MonoBehaviour
             
             Debug.Log("Spawning enemy " + randomType + " at position " + spawnPosition);
 
-            // MessageManager.Instance.spawnMessenger.SendMessage(new SpawnMessage(randomType));
-
             enemyFactory.CreateEnemy(randomType, spawnPosition);
 
             yield return new WaitForSeconds(spawnInterval);
