@@ -27,12 +27,17 @@ public class PowerupHandler : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    public virtual void OnDestroy()
     {
         foreach (Powerup powerup in activePowerups)
         {
             powerup.RemoveEffect(player);
         }
         activePowerups.Clear();
+    }
+
+    public List<Powerup> GetActivePowerups()
+    {
+        return new List<Powerup>(activePowerups);
     }
 }

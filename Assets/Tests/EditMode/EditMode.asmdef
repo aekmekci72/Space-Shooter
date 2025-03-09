@@ -4,10 +4,14 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "Scripts"
+        "Scripts",
+        "NSubstitute"
     ],
     "includePlatforms": [
         "Editor"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -64,13 +64,14 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.47f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\SpawnMessage.cs" />
     <Compile Include="Assets\Scripts\PubSub Pattern\MessageManager.cs" />
     <Compile Include="Assets\Scripts\Enemy Stuff\Enemy.cs" />
     <Compile Include="Assets\Scripts\DeathScreenState.cs" />
     <Compile Include="Assets\Scripts\HomeScreenState.cs" />
     <Compile Include="Assets\Scripts\Enemy Stuff\EnemyRed.cs" />
     <Compile Include="Assets\Scripts\PubSub Pattern\Message.cs" />
-    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\KillMessage.cs" />
+    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\SpawnMessenger.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Speed.cs" />
     <Compile Include="Assets\Scripts\StatTracker.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets\Scripts\Enemy Stuff\EnemyType.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\UI\StatsPanel.cs" />
     <Compile Include="Assets\Scripts\GameStateManager.cs" />
     <Compile Include="Assets\Scripts\PowerupHandler.cs" />
     <Compile Include="Assets\Scripts\IGameState.cs" />
@@ -87,7 +89,7 @@
     <Compile Include="Assets\Scripts\Enemy Stuff\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Enemy Stuff\EnemyFactory.cs" />
-    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\KillMessenger.cs" />
+    <Compile Include="Assets\Scripts\UI\UIPanelButton.cs" />
     <Compile Include="Assets\Scripts\PubSub Pattern\Messenger.cs" />
     <Compile Include="Assets\Scripts\FireSpeed.cs" />
     <Compile Include="Assets\Scripts\GameplayState.cs" />

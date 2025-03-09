@@ -19,7 +19,7 @@
     <RootNamespace></RootNamespace>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>EditMode</AssemblyName>
+    <AssemblyName>Tests1</AssemblyName>
     <TargetFramework>netstandard2.1</TargetFramework>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
@@ -64,11 +64,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.47f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Tests\EditMode\SampleTests.cs" />
-    <Compile Include="Assets\Tests\EditMode\PowerupHandlerTests.cs" />
+    <Compile Include="Assets\Tests 1\PowerupHandlerTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Tests\EditMode\EditMode.asmdef" />
+    <None Include="Assets\Tests 1\Tests 1.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -937,7 +936,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Scripts.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>
