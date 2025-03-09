@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public EnemyFactory enemyFactory;
     public float spawnInterval = 5f;
-    private int currentWave;
+    public WaveManager waveManager;
 
     private void OnEnable()
     {
@@ -20,21 +20,34 @@ public class EnemySpawner : MonoBehaviour
 
     public void StartWave(LevelMessage msg)
     {
-        currentWave = msg.waveNumber;
-        StartCoroutine(SpawnWave());
+        Debug.Log("Starting wave " + msg.waveNumber);
+        // currentWave = msg.waveNumber;
+        StartCoroutine(SpawnWave(msg.waveNumber));
     }
 
-    IEnumerator SpawnWave()
+    IEnumerator SpawnWave(int currentWave)
     {
-        for (int i = 0; i < currentWave + 4; i++)
+        spawnInterval--;
+        int enemiesToSpawn = Mathf.RoundToInt((currentWave + 4) * 1.3f);
+        Debug.Log("spawning " + enemiesToSpawn + " enemies");
+
+        for (int i = 0; i < enemiesToSpawn; i++)
         {
             Vector3 spawnPosition = new Vector3(Random.Range(-2.5f, 2.5f), 5.5f, 0);
             EnemyType randomType = (EnemyType)Random.Range(0, 2);
             
-            MessageManager.Instance.spawnMessenger.SendMessage(new SpawnMessage(randomType));
+            Debug.Log("Spawning enemy " + randomType + " at position " + spawnPosition);
+
+            // MessageManager.Instance.spawnMessenger.SendMessage(new SpawnMessage(randomType));
 
             enemyFactory.CreateEnemy(randomType, spawnPosition);
+
             yield return new WaitForSeconds(spawnInterval);
         }
+
+        Debug.Log("done spawning enemies");
+
+        waveManager.EndWave();
+
     }
 }

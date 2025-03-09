@@ -6,7 +6,6 @@ public class WaveManager : MonoBehaviour
 {
 
     public int currentWave = 1;
-    public int enemiesPerWave = 5;
     public EnemySpawner enemySpawner;
     private bool waveActive = false;
 
@@ -32,21 +31,20 @@ public class WaveManager : MonoBehaviour
             waveActive = true;
             currentWave = msg.waveNumber;
             enemySpawner.StartWave(msg);
+            // MessageManager.Instance.levelMessenger.SendMessage(new LevelMessage(currentWave));
         }
     }
 
-    void EndWave()
+    public void EndWave()
     {
+        Debug.Log("Ending wave " + currentWave);
         waveActive = false;
-        MessageManager.Instance.levelMessenger.SendMessage(new LevelMessage(currentWave));
         Invoke(nameof(NextWave), 3f);
     }
 
     void NextWave()
     {
         currentWave++;
-        Debug.Log(currentWave);
-        enemiesPerWave += 3;
         StartWave(new LevelMessage(currentWave));
     }
 }
