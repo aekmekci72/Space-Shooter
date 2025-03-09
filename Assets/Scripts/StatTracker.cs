@@ -6,11 +6,13 @@ public class StatTracker : Singleton<StatTracker>
 {
     // add more here
     public int EnemiesSpawned { get; private set; }
+    public int PowerupsGained { get; private set; }
 
     public void Start()
     {
         // MessageManager.Instance.killMessenger.Subscribe(KilledEvent);
         MessageManager.Instance.spawnMessenger.Subscribe(SpawnEvent);
+        MessageManager.Instance.powerupMessenger.Subscribe(PowerupEvent);
         // MessageManager.Instance.levelMessenger.Subscribe(LevelClearedEvent);
     }
 
@@ -47,6 +49,11 @@ public class StatTracker : Singleton<StatTracker>
         // {
         //     Debug.Log("Invalid state " + message + "received in SpawnEvent");
         // }
+    }
+
+    public void PowerupEvent(PowerupMessage message)
+    {
+        PowerupsGained++;
     }
 
 
