@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +14,10 @@ public class PlayerController : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFireTime = 0f;
     public bool takingDamage = true;
-    public float health = 1f;
+    public float health;
+    public float maxHealth = 20f;
+    public HealthBar healthBar;
+
 
     private PowerupHandler powerupManager;
 
@@ -21,12 +25,15 @@ public class PlayerController : MonoBehaviour
     {
         CalculateScreenBoundaries();
         powerupManager = GetComponent<PowerupHandler>(); 
+        health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
     {
         MovePlayer();
         CheckShoot();
+        healthBar.SetHealth(health);
     }
 
     void CalculateScreenBoundaries()
