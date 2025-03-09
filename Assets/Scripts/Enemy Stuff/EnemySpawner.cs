@@ -6,28 +6,33 @@ public class EnemySpawner : MonoBehaviour
 {
     public EnemyFactory enemyFactory;
     public float spawnInterval = 5f;
+    private int currentWave;
 
     private void OnEnable()
     {
-        MessageManager.Instance.spawnMessenger.Subscribe(StartSpawning);
+        MessageManager.Instance.levelMessenger.Subscribe(StartWave);
     }
 
     private void OnDisable()
     {
-        MessageManager.Instance.spawnMessenger.Unsubscribe(StartSpawning);
+        MessageManager.Instance.levelMessenger.Unsubscribe(StartWave);
     }
 
-    void StartSpawning(SpawnMessage msg)
+    void StartWave(LevelMessage msg)
     {
-        StartCoroutine(SpawnWave(msg.waveNumber));
+        currentWave = msg.waveNumber;
+        StartCoroutine(SpawnWave());
     }
 
-    IEnumerator SpawnWave(int waveNumber)
+    IEnumerator SpawnWave()
     {
-        for (int i = 0; i < waveNumber + 4; i++)
+        for (int i = 0; i < currentWave + 4; i++)
         {
             Vector3 spawnPosition = new Vector3(Random.Range(-2.5f, 2.5f), 5.5f, 0);
             EnemyType randomType = (EnemyType)Random.Range(0, 2);
+            
+            MessageManager.Instance.spawnMessenger.SendMessage(new SpawnMessage(randomType));
+
             enemyFactory.CreateEnemy(randomType, spawnPosition);
             yield return new WaitForSeconds(spawnInterval);
         }

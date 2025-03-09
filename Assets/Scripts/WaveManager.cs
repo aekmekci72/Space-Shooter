@@ -7,43 +7,36 @@ public class WaveManager : MonoBehaviour
 
     public int currentWave = 1;
     public int enemiesPerWave = 5;
-    private int enemiesRemaining;
+    public EnemySpawner enemySpawner;
     private bool waveActive = false;
 
     void OnEnable()
     {
-        MessageManager.Instance.killMessenger.Subscribe(EnemyDefeated);
+        MessageManager.Instance.levelMessenger.Subscribe(StartWave);
     }
 
     private void OnDisable()
     {
-        MessageManager.Instance.killMessenger.Unsubscribe(EnemyDefeated);
+        MessageManager.Instance.levelMessenger.Unsubscribe(StartWave);
     }
 
     private void Start()
     {
-        StartWave();
+        StartWave(new LevelMessage(currentWave));
     }
 
-    void StartWave()
+    void StartWave(LevelMessage msg)
     {
-        waveActive = true;
-        enemiesRemaining = enemiesPerWave;
-        MessageManager.Instance.spawnMessenger.SendMessage(new SpawnMessage(currentWave));
-    }
-
-    void EnemyDefeated(KillMessage msg)
-    {
-        enemiesRemaining--;
-        if (enemiesRemaining <= 0)
+        if (!waveActive)
         {
-            EndWave();
+            waveActive = true;
+            currentWave = msg.waveNumber;
+            enemySpawner.StartWave(msg);
         }
     }
 
     void EndWave()
     {
-        if (!waveActive) return;
         waveActive = false;
         MessageManager.Instance.levelMessenger.SendMessage(new LevelMessage(currentWave));
         Invoke(nameof(NextWave), 3f);
@@ -54,6 +47,6 @@ public class WaveManager : MonoBehaviour
         currentWave++;
         Debug.Log(currentWave);
         enemiesPerWave += 3;
-        StartWave();
+        StartWave(new LevelMessage(currentWave));
     }
 }
