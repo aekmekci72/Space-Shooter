@@ -26,6 +26,7 @@ public class Ebullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("here");
         PlayerController player = collision.GetComponent<PlayerController>();
         Debug.Log("bullet hit player");
         if (player != null)
@@ -34,6 +35,7 @@ public class Ebullet : MonoBehaviour
             if (player.health<=0)
             {
                 Debug.Log("player dead");
+                GameStateManager.Instance.SetState(new DeathScreenState());
             }
 
             Destroy(gameObject);
