@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 498807300}
   - component: {fileID: 498807299}
   - component: {fileID: 498807302}
+  - component: {fileID: 498807303}
   m_Layer: 0
   m_Name: playerShip1_orange
   m_TagString: Untagged
@@ -421,6 +422,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.99, y: 0.75}
   m_EdgeRadius: 0
+--- !u!114 &498807303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498807298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258032d610afc9749ad2e67747185d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +521,60 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &680740399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 680740401}
+  - component: {fileID: 680740400}
+  m_Layer: 0
+  m_Name: PowerupSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &680740400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680740399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b02b2318ae547041a51a49934b1d7de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerups:
+  - powerupPrefab: {fileID: 4739928286468524190, guid: 63da37d05b44f4b449e6ef54ed709047, type: 3}
+    dropChance: 7
+  - powerupPrefab: {fileID: 7440625276755255856, guid: 6ae10019e1548b546b94a653263cc724, type: 3}
+    dropChance: 7
+  - powerupPrefab: {fileID: 3505147154543563416, guid: c8cdfb9468db1874284b07b2caeb7c00, type: 3}
+    dropChance: 7
+  - powerupPrefab: {fileID: 3726868059586421261, guid: b519da1e690c61c4699071be932bffad, type: 3}
+    dropChance: 7
+  fallSpeed: 2
+--- !u!4 &680740401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680740399}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -92.98777, y: 454.65033, z: -2.6298137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1111,4 +1178,4 @@ SceneRoots:
   - {fileID: 1841579753}
   - {fileID: 2095303540}
   - {fileID: 365219703}
-  - {fileID: 2032173995}
+  - {fileID: 680740401}

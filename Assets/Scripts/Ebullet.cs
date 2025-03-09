@@ -31,7 +31,10 @@ public class Ebullet : MonoBehaviour
         Debug.Log("bullet hit player");
         if (player != null)
         {
-            player.health -= (float)1;
+            if (player.takingDamage){
+                player.health -= (float)1;
+            }
+            
             if (player.health<=0)
             {
                 Debug.Log("player dead");

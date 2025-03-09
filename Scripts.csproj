@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\DeathScreenState.cs" />
     <Compile Include="Assets\Scripts\HomeScreenState.cs" />
     <Compile Include="Assets\Scripts\Enemy Stuff\EnemyRed.cs" />
+    <Compile Include="Assets\Scripts\PowerupSpawner.cs" />
     <Compile Include="Assets\Scripts\PubSub Pattern\Message.cs" />
     <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\SpawnMessenger.cs" />
     <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\KillMessage.cs" />
