@@ -23,7 +23,7 @@ public class EnemyFactory : MonoBehaviour
         }
 
         Enemy enemy = enemyObj.GetComponent<Enemy>();
-        enemy.Initialize();
+        // enemy.Initialize();
         return enemy;
     }
 }

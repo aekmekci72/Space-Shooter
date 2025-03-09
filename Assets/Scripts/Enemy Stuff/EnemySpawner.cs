@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
         MessageManager.Instance.levelMessenger.Unsubscribe(StartWave);
     }
 
-    void StartWave(LevelMessage msg)
+    public void StartWave(LevelMessage msg)
     {
         currentWave = msg.waveNumber;
         StartCoroutine(SpawnWave());
