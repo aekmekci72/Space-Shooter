@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class SpawnMessage : Message
 {
-    public EnemyType enemySpawned;
 
-    public SpawnMessage(EnemyType enemySpawned)
+    
+    public Enemy enemySpawned;
+
+    public SpawnMessage(Enemy enemySpawned)
     {
         this.enemySpawned = enemySpawned;
+    }
+
+    public override string ToString()
+    {
+        return this.GetType().Name + ": " + enemySpawned;
     }
 }

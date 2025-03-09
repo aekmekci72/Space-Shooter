@@ -9,15 +9,19 @@ public class SpawnMessenger : Messenger<SpawnMessage>
     public override void SendMessage(SpawnMessage m)
     {
         receivers?.Invoke(m);
+        subscribers.Invoke(m);
     }
+
+    private event passMessage subscribers;
 
     public override void Subscribe(passMessage method)
     {
-        receivers += method;
+        subscribers += method;
     }
 
     public override void Unsubscribe(passMessage method)
     {
-        receivers -= method;
+        subscribers -= method;
     }
+
 }
