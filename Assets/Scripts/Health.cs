@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : Powerup
 {
-    public float healthIncrease = 0.25f; 
+    public float healthIncrease = 5f; 
 
     public override void ApplyEffect(PlayerController player)
     {

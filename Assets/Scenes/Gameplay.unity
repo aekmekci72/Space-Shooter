@@ -557,13 +557,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerups:
   - powerupPrefab: {fileID: 4739928286468524190, guid: 63da37d05b44f4b449e6ef54ed709047, type: 3}
-    dropChance: 25
+    dropChance: 7
   - powerupPrefab: {fileID: 7440625276755255856, guid: 6ae10019e1548b546b94a653263cc724, type: 3}
-    dropChance: 25
+    dropChance: 7
   - powerupPrefab: {fileID: 3505147154543563416, guid: c8cdfb9468db1874284b07b2caeb7c00, type: 3}
-    dropChance: 25
+    dropChance: 7
   - powerupPrefab: {fileID: 3726868059586421261, guid: b519da1e690c61c4699071be932bffad, type: 3}
-    dropChance: 25
+    dropChance: 7
   fallSpeed: 2
 --- !u!4 &680740401
 Transform:

@@ -8,7 +8,7 @@ public abstract class Powerup : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y < bottom)
+        if (transform.position.y < bottom && !(GetComponent<SpriteRenderer>().enabled == false))
         {
             Destroy(gameObject);
         }
