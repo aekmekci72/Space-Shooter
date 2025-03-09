@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBlue : Enemy
 {
-    public override void Initialize()
+    public void Initialize()
     {
         MessageManager.Instance.spawnMessenger.SendMessage(new SpawnMessage(this));
         Debug.Log("EnemyBlue Spawned");

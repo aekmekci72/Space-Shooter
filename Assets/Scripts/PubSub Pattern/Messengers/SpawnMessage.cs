@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnMessage : Message
 {
+
+    
     public Enemy enemySpawned;
 
     public SpawnMessage(Enemy enemySpawned)
