@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SpawnMessage : Message
 {
-    public Enemy enemySpawned;
+    public EnemyType enemySpawned;
 
-    public SpawnMessage(Enemy enemySpawned)
+    public SpawnMessage(EnemyType enemySpawned)
     {
         this.enemySpawned = enemySpawned;
     }
