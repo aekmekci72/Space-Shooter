@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SpawnMessage : MonoBehaviour
 {
-    public int waveNumber;
+    public EnemyType enemySpawned;
 
-    public SpawnMessage(int waveNumber)
+    public SpawnMessage(EnemyType enemySpawned)
     {
-        this.waveNumber = waveNumber;
+        this.enemySpawned = enemySpawned;
     }
 }

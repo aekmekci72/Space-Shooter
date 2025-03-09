@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnMessenger : Messenger<KillMessage>
+public class SpawnMessenger : Messenger<SpawnMessage>
 {
     private passMessage receivers;
     
-    public override void SendMessage(KillMessage m)
+    public override void SendMessage(SpawnMessage m)
     {
         receivers?.Invoke(m);
     }
