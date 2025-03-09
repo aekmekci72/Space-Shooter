@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerupHandler : MonoBehaviour
 {
-    private PlayerController player; 
+    [SerializeField] private PlayerController player; 
     private List<Powerup> activePowerups = new List<Powerup>();
 
     void Start()

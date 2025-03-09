@@ -2,25 +2,26 @@
     "name": "EditMode",
     "rootNamespace": "",
     "references": [
-        "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Scripts",
-        "NSubstitute"
+        "UnityEngine.TestRunner",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "TNRD.NSubstitute"
     ],
     "includePlatforms": [
         "Editor"
-    ],
-    "optionalUnityReferences": [
-        "TestAssemblies"
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
+        "nunit.framework.dll",
         "nunit.framework.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [
+        "UNITY_INCLUDE_TESTS",
         "UNITY_INCLUDE_TESTS"
     ],
     "versionDefines": [],
