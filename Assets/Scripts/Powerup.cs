@@ -4,7 +4,15 @@ public abstract class Powerup : MonoBehaviour
 {
     public abstract void ApplyEffect(PlayerController player);
     public abstract void RemoveEffect(PlayerController player);
+    public float bottom = -10f;
 
+    void Update()
+    {
+        if (transform.position.y < bottom)
+        {
+            Destroy(gameObject);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         PowerupHandler powerupManager = other.GetComponent<PowerupHandler>(); 
