@@ -1,6 +1,8 @@
 // Juna Lee
 // Test suite for verifying core behaviors of the spawning and destroying enemies.
-// This suite ensures that enemies are spawned correctly using the factory pattern and validates key interactions such as enemy destruction and wave progression.
+// I chose these three tests because they cover the key functions of enemies in the gameplay loop: spawning, destruction, and wave progression.
+// To prevent a brittle test suite, I used NSubstitute to mock dependencies like the factory and wave manager so I could focus on the EnemySpawner and Enemy classes.
+
 
 using NUnit.Framework;
 using UnityEngine;
@@ -13,10 +15,6 @@ public class EnemyTests
 {
     private Enemy enemy;
 
-    private Enemy enemy1;
-    private Enemy enemy2;
-    private Enemy enemy3;
-    
     private EnemySpawner enemySpawner;
     private EnemyFactory mockFactory;
     private WaveManager mockWaveManager;
@@ -29,10 +27,12 @@ public class EnemyTests
 
         mockFactory = Substitute.For<EnemyFactory>();
         mockWaveManager = Substitute.For<WaveManager>();
+        mockEnemyRedPrefab = new GameObject("EnemyRed");
 
         // Assign mock dependencies to spawner
         enemySpawner.enemyFactory = mockFactory;
         enemySpawner.waveManager = mockWaveManager;
+        enemyFactory.eRedPrefab = mockEnemyRedPrefab;
     }
 
     [TearDown]
@@ -69,12 +69,17 @@ public class EnemyTests
     }
 
     [Test]
-    public void EndWave_ShouldNotifyWaveManager()
+    public void CreateEnemy_CreatesEnemyRed()
     {
+        // Arrange
+        Vector3 spawnPosition = new Vector3(0, 0, 0);
+        EnemyType enemyType = EnemyType.EnemyRed;
+
         // Act
-        enemySpawner.waveManager.EndWave();
+        Enemy enemy = enemyFactory.CreateEnemy(enemyType, spawnPosition);
 
         // Assert
-        mockWaveManager.Received(1).EndWave();
+        Assert.That(enemy, Is.InstanceOf<EnemyRed>());
+        Assert.AreEqual(spawnPosition, enemy.transform.position);
     }
 }
