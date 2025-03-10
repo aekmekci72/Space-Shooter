@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="Current">
+<Project ToolsVersion="Current">
   <!-- Generated file, do not modify, your changes will be overwritten (use AssetPostprocessor.OnGeneratedCSProject) -->
   <PropertyGroup>
     <BaseIntermediateOutputPath>Temp\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
@@ -70,8 +70,10 @@
     <Compile Include="Assets\Scripts\DeathScreenState.cs" />
     <Compile Include="Assets\Scripts\HomeScreenState.cs" />
     <Compile Include="Assets\Scripts\Enemy Stuff\EnemyRed.cs" />
+    <Compile Include="Assets\Scripts\PowerupSpawner.cs" />
     <Compile Include="Assets\Scripts\PubSub Pattern\Message.cs" />
     <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\SpawnMessenger.cs" />
+    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\KillMessage.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Speed.cs" />
     <Compile Include="Assets\Scripts\StatTracker.cs" />
@@ -81,17 +83,22 @@
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\UI\StatsPanel.cs" />
     <Compile Include="Assets\Scripts\GameStateManager.cs" />
+    <Compile Include="Assets\Scripts\WaveManager.cs" />
     <Compile Include="Assets\Scripts\PowerupHandler.cs" />
     <Compile Include="Assets\Scripts\IGameState.cs" />
+    <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Shield.cs" />
     <Compile Include="Assets\Scripts\Ebullet.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Enemy Stuff\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\LevelMessenger.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Enemy Stuff\EnemyFactory.cs" />
+    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\KillMessenger.cs" />
     <Compile Include="Assets\Scripts\UI\UIPanelButton.cs" />
     <Compile Include="Assets\Scripts\PubSub Pattern\Messenger.cs" />
     <Compile Include="Assets\Scripts\FireSpeed.cs" />
+    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\LevelMessage.cs" />
     <Compile Include="Assets\Scripts\GameplayState.cs" />
     <Compile Include="Assets\Scripts\Enemy Stuff\EnemyBlue.cs" />
   </ItemGroup>

@@ -13,10 +13,12 @@ public class EnemyController : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFireTime = 0f;
     Vector3 screenBounds;
+    private PowerupSpawner powerupSpawner;
     // Start is called before the first frame update
     void Start()
     {
         CalculateScreenBoundaries();
+        powerupSpawner = FindObjectOfType<PowerupSpawner>();
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class EnemyController : MonoBehaviour
         Camera mainCamera = Camera.main;
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         
-        minY = -screenBounds.y + boundaryOffset;
+        minY = -screenBounds.y - boundaryOffset;
         maxY = screenBounds.y - boundaryOffset;
     }
 
@@ -56,5 +58,17 @@ public class EnemyController : MonoBehaviour
             firePoint.position = transform.position;
             Instantiate(ebulletPrefab, firePoint.position, firePoint.rotation);
         }   
+    }
+    public void Die()
+    {
+        {
+            Debug.Log("here3");
+            if (powerupSpawner != null)
+            {
+                Debug.Log("here4");
+                powerupSpawner.SpawnPowerup(transform.position);
+            }
+            Destroy(gameObject);
+        }
     }
 }

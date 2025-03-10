@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnMessenger : Messenger<SpawnMessage>
+public class PowerupMessenger : Messenger<PowerupMessage>
 {
     private event passMessage subscribers;
 
@@ -16,7 +16,7 @@ public class SpawnMessenger : Messenger<SpawnMessage>
         subscribers -= method;
     }
 
-    public override void SendMessage(SpawnMessage m)
+    public override void SendMessage(PowerupMessage m)
     {
         subscribers.Invoke(m);
     }

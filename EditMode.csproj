@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="Current">
+<Project ToolsVersion="Current">
   <!-- Generated file, do not modify, your changes will be overwritten (use AssetPostprocessor.OnGeneratedCSProject) -->
   <PropertyGroup>
     <BaseIntermediateOutputPath>Temp\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Tests\EditMode\SampleTests.cs" />
-    <Compile Include="Assets\Tests\EditMode\PowerupHandlerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tests\EditMode\EditMode.asmdef" />
@@ -919,12 +918,12 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.47f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEditor.TestRunner">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.UI">

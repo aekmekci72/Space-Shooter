@@ -15,6 +15,7 @@ public class PowerupHandler : MonoBehaviour
     public void AddPowerup(Powerup powerup)
     {
         activePowerups.Add(powerup);
+        MessageManager.Instance.powerupMessenger.SendMessage(new PowerupMessage(powerup));
         powerup.ApplyEffect(player);
     }
 

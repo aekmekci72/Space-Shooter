@@ -11,6 +11,7 @@ public class EnemyFactory : MonoBehaviour
     public Enemy CreateEnemy(EnemyType type, Vector3 position)
     {
         GameObject enemyObj = null;
+    
 
         switch (type)
         {
@@ -23,7 +24,8 @@ public class EnemyFactory : MonoBehaviour
         }
 
         Enemy enemy = enemyObj.GetComponent<Enemy>();
-        enemy.Initialize();
+        // MessageManager.Instance.spawnMessenger.SendMessage(new SpawnMessage(enemy));
+        // enemy.Initialize();
         return enemy;
     }
 }
