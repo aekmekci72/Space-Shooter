@@ -38,7 +38,8 @@ public class Ebullet : MonoBehaviour
             if (player.health<=0)
             {
                 Debug.Log("player dead");
-                GameStateManager.Instance.SetState(new DeathScreenState());
+                // GameStateManager.Instance.SetState(new DeathScreenState());
+                GameStateManager.Instance.SetState(new HomeScreenState());
             }
 
             Destroy(gameObject);
