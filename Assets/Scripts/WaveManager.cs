@@ -26,12 +26,12 @@ public class WaveManager : MonoBehaviour
 
     void StartWave(LevelMessage msg)
     {
+        StatTracker.Instance.CurrentWave++;
         if (!waveActive)
         {
             waveActive = true;
             currentWave = msg.waveNumber;
             enemySpawner.StartWave(msg);
-            // MessageManager.Instance.levelMessenger.SendMessage(new LevelMessage(currentWave));
         }
     }
 
@@ -46,5 +46,6 @@ public class WaveManager : MonoBehaviour
     {
         currentWave++;
         StartWave(new LevelMessage(currentWave));
+        // MessageManager.Instance.levelMessenger.SendMessage(new LevelMessage(currentWave));
     }
 }

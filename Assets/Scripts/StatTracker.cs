@@ -4,38 +4,26 @@ using UnityEngine;
 
 public class StatTracker : Singleton<StatTracker>
 {
-    // add more here
+    // public WaveManager waveManager;
+    
     public int EnemiesSpawned { get; private set; }
     public int PowerupsGained { get; private set; }
+    public int EnemiesKilled { get; private set; }
+    public int CurrentWave { get; set; }
 
     public void Start()
     {
-        // MessageManager.Instance.killMessenger.Subscribe(KilledEvent);
+        MessageManager.Instance.killMessenger.Subscribe(KilledEvent);
         MessageManager.Instance.spawnMessenger.Subscribe(SpawnEvent);
         MessageManager.Instance.powerupMessenger.Subscribe(PowerupEvent);
         // MessageManager.Instance.levelMessenger.Subscribe(LevelClearedEvent);
     }
 
 
-    // public void KilledEvent(KillMessage message)
-    // {
-        // if (message.creatureKilled == Actor.actorType.worker)
-        // {
-        //     WorkersKilled++;
-        // }
-        // else if (message.creatureKilled == Actor.actorType.zombie)
-        // {
-        //     ZombiesKilled++;
-        // }
-        // else if (message.creatureKilled == Actor.actorType.graveyard)
-        // {
-        //     GraveyardsKilled++;
-        // }
-        // else
-        // {
-        //     Debug.Log("Invalid state " + message + "received in KillEvent");
-        // }
-    // }
+    public void KilledEvent(KillMessage message)
+    {
+        EnemiesKilled++;
+    }
 
 
     public void SpawnEvent(SpawnMessage message)
@@ -57,13 +45,13 @@ public class StatTracker : Singleton<StatTracker>
     }
 
 
-    // public void LevelClearedEvent(LevelClearedMessage message)
+    // public void LevelClearedEvent(LevelMessage message)
     // {
-        // if (message.Level > HighestLevelReached)
-        // {
-        //     HighestLevelReached = message.Level;
-        // }
+    //     // if (message.Level > HighestLevelReached)
+    //     // {
+    //     //     HighestLevelReached = message.Level;
+    //     // }
 
-        // LevelsCleared++;
+    //     LevelsCleared++;
     // }
 }
