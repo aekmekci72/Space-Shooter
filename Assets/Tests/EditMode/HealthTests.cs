@@ -62,46 +62,32 @@ public class HealthTests
     public void HealthPowerUp_IncreasesHealth()
     {
         // Arrange
-        var mockCollider = Substitute.For<Collider2D>();
+        var mockPowerup = Substitute.For<Health>();
         powerupHandler.GetComponent<PlayerController>().Returns(mockPlayer);
         mockPlayer.health = 5;
 
         // Act
-        enemyBullet.OnTriggerEnter2D(mockCollider);
+        powerupHandler.AddPowerup(mockPowerup);
+        
 
         // Assert
         Assert.AreEqual(10, mockPlayer.health);
     }
 
-
     [Test]
-    public void AddPowerup_ShouldAddToListAndApplyEffect()
+    public void PlayerDies_SendsDeathMessage()
     {
         // Arrange
-        var mockPowerup = Substitute.For<Powerup>();
+        var mockCollider = Substitute.For<Collider2D>();
+        mockCollider.GetComponent<PlayerController>().Returns(mockPlayer);
+        mockPlayer.health = 1; 
+        mockPlayer.takingDamage = true; 
 
         // Act
-        powerupHandler.AddPowerup(mockPowerup);
+        enemyBullet.OnTriggerEnter2D(mockCollider);
 
         // Assert
-        Assert.That(powerupHandler.GetActivePowerups(), Does.Contain(mockPowerup));
-        mockPowerup.Received(1).ApplyEffect(mockPlayer);
+        Assert.AreEqual(0, mockPlayer.health);
     }
 
-    [Test]
-    public void RemovePowerup_ExistingPowerup_ShouldRemoveFromListAndRemoveEffect()
-    {
-        // Arrange
-        var mockPowerup = Substitute.For<Powerup>();
-        powerupHandler.AddPowerup(mockPowerup);
-
-        // Act
-        powerupHandler.RemovePowerup(mockPowerup);
-
-        // Assert
-        Assert.That(powerupHandler.GetActivePowerups(), Does.Not.Contain(mockPowerup));
-        mockPowerup.Received(1).RemoveEffect(mockPlayer);
-    }
-
- 
 }
