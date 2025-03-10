@@ -1,18 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UIPanelButton : MonoBehaviour
+public class UIPanelButtons : MonoBehaviour
 {
+    public GameObject statsPanel;
+    UIState state = UIState.none;
+
+    public enum UIState
+    {
+        none,
+        stats
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        DisableAll();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void DisableAll()
     {
-        
+        statsPanel.SetActive(false);
+    }
+
+    public void statsButtonPush()
+    {
+        DisableAll(); 
+        if (state == UIState.stats)
+        {
+            state = UIState.none;
+        }
+        else
+        {
+            state = UIState.stats;
+            statsPanel.SetActive(true);
+        }
     }
 }
