@@ -3,10 +3,8 @@
     "rootNamespace": "",
     "references": [
         "UnityEditor.TestRunner",
+        "UnityEngine.TestRunner",
         "Scripts",
-        "UnityEngine.TestRunner",
-        "UnityEngine.TestRunner",
-        "UnityEditor.TestRunner",
         "TNRD.NSubstitute"
     ],
     "includePlatforms": [
@@ -16,7 +14,6 @@
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
-        "nunit.framework.dll",
         "nunit.framework.dll"
     ],
     "autoReferenced": false,
