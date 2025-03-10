@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
         Camera mainCamera = Camera.main;
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         
-        minY = -screenBounds.y + boundaryOffset;
+        minY = -screenBounds.y - boundaryOffset;
         maxY = screenBounds.y - boundaryOffset;
     }
 
