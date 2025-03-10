@@ -1,4 +1,4 @@
-<Project ToolsVersion="Current">
+﻿<Project ToolsVersion="Current">
   <!-- Generated file, do not modify, your changes will be overwritten (use AssetPostprocessor.OnGeneratedCSProject) -->
   <PropertyGroup>
     <BaseIntermediateOutputPath>Temp\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
@@ -19,7 +19,7 @@
     <RootNamespace></RootNamespace>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Scripts</AssemblyName>
+    <AssemblyName>TNRD.NSubstitute</AssemblyName>
     <TargetFramework>netstandard2.1</TargetFramework>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
@@ -64,46 +64,209 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.47f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\SpawnMessage.cs" />
-    <Compile Include="Assets\Scripts\PubSub Pattern\MessageManager.cs" />
-    <Compile Include="Assets\Scripts\Enemy Stuff\Enemy.cs" />
-    <Compile Include="Assets\Scripts\DeathScreenState.cs" />
-    <Compile Include="Assets\Scripts\HomeScreenState.cs" />
-    <Compile Include="Assets\Scripts\Enemy Stuff\EnemyRed.cs" />
-    <Compile Include="Assets\Scripts\PowerupSpawner.cs" />
-    <Compile Include="Assets\Scripts\PubSub Pattern\Message.cs" />
-    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\SpawnMessenger.cs" />
-    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\KillMessage.cs" />
-    <Compile Include="Assets\Scripts\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\Speed.cs" />
-    <Compile Include="Assets\Scripts\StatTracker.cs" />
-    <Compile Include="Assets\Scripts\Powerup.cs" />
-    <Compile Include="Assets\Scripts\Enemy Stuff\EnemyType.cs" />
-    <Compile Include="Assets\Scripts\Bullet.cs" />
-    <Compile Include="Assets\Scripts\Singleton.cs" />
-    <Compile Include="Assets\Scripts\UI\StatsPanel.cs" />
-    <Compile Include="Assets\Scripts\GameStateManager.cs" />
-    <Compile Include="Assets\Scripts\WaveManager.cs" />
-    <Compile Include="Assets\Scripts\PowerupHandler.cs" />
-    <Compile Include="Assets\Scripts\IGameState.cs" />
-    <Compile Include="Assets\Scripts\HealthBar.cs" />
-    <Compile Include="Assets\Scripts\Shield.cs" />
-    <Compile Include="Assets\Scripts\Ebullet.cs" />
-    <Compile Include="Assets\Scripts\Health.cs" />
-    <Compile Include="Assets\Scripts\Enemy Stuff\EnemySpawner.cs" />
-    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\LevelMessenger.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Enemy Stuff\EnemyFactory.cs" />
-    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\KillMessenger.cs" />
-    <Compile Include="Assets\Scripts\UI\UIPanelButton.cs" />
-    <Compile Include="Assets\Scripts\PubSub Pattern\Messenger.cs" />
-    <Compile Include="Assets\Scripts\FireSpeed.cs" />
-    <Compile Include="Assets\Scripts\PubSub Pattern\Messengers\LevelMessage.cs" />
-    <Compile Include="Assets\Scripts\GameplayState.cs" />
-    <Compile Include="Assets\Scripts\Enemy Stuff\EnemyBlue.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Query.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\ArgumentMatchInfo.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\CallSequenceNotFoundException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\ReturnFromBaseIfRequired.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\RedundantArgumentMatcherException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallActions.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\SequenceChecking\SequenceInOrderAssertion.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\DoNotCallBaseForCallHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\AutoValues\IAutoValueProvidersFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IReturn.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\AutoValues\AutoValueProvidersFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Extensions\ReturnsExtensions.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallSpecification.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallCollection.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ConfiguredCall.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\PendingSpecificationInfo.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Arg.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallRouter.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\DependencyInjection\INSubContainer.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Substitute.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IThreadLocalContext.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Callback.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallInfoFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Extensions\ReceivedExtensions.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Extensions\ConfigurationExtensions.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\RaiseEventHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\CouldNotConfigureBaseMethodException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\IArgumentSpecificationCompatibilityTester.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\SubstituteExtensions.When.ValueTask.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallCollection.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\IRoute.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CustomHandlers.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\CallBaseForCallHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\ExpressionArgumentMatcher.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\ArgumentSetWithIncompatibleValueException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallRouterFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICustomHandlers.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\ArgumentSpecificationCompatibilityTester.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IMethodInfoFormatter.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IQuery.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\SuppliedArgumentSpecifications.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\ArgumentIsNotOutOrRefException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\EqualsArgumentMatcher.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\SubstituteExtensions.Returns.ValueTask.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Events\RaiseEventWrapper.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ISubstitutionContext.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallSpecificationFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Proxies\ProxyFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ResultsForType.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallRouter.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Compatibility\CompatArg.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\IArgumentSpecificationsFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallResults.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\EventHandlerRegistry.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\SubstituteInternalException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\MatchArgs.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\SubstituteExtensions.When.Task.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IArgumentSpecificationDequeue.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Events\EventHandlerWrapper.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ArgumentSpecificationDequeue.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallSpecificationFactoryFactoryYesThatsRight.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Events\DelegateEventWrapper.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\DoActionsCallHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\GetCallSpec.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ConfigureCall.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ISubstituteState.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\AmbiguousArgumentsException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IResultsForType.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\AutoValues\AutoStringProvider.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\EventCallFormatter.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\IArgumentSpecificationFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\ArgumentSpecification.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IGetCallSpec.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Compatibility\DiagnosticsNullabilityAttributes.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\CheckReceivedCallsHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Call.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallBaseConfiguration.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Received.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\DependencyInjection\NSubLifetime.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\EventSubscriptionHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\PropertySetterHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\AutoValues\AutoTaskProvider.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\ReturnFromAndConfigureDynamicCall.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IDescribeNonMatches.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallRouterResolver.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\AutoValues\AutoObservableProvider.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\WhenCalled.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\ClearLastCallRouterHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IConfigureCall.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\AddCallToQueryResultHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\ClearUnusedCallSpecHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ReflectionExtensions.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\MissingSequenceNumberException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\CanNotPartiallySubForInterfaceOrDelegateException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\AutoValues\IAutoValueProvider.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\RouteFactoryCacheWrapper.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\CouldNotRaiseEventException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\AutoValues\AutoArrayProvider.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Proxies\DelegateProxy\DelegateProxyFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\SuppliedArgumentSpecificationsFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Maybe.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\SubstituteExtensions.Returns.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\IArgumentSpecification.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ParameterInfoWrapper.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallResults.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\AnyArgumentMatcher.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\DependencyInjection\NSubstituteDefaultFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ISubstituteFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\ReceivedCallsException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IParameterInfo.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\NotRunningAQueryException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ThreadLocalContext.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ReturnObservable.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Proxies\CastleDynamicProxy\CastleForwardingInterceptor.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICall.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Proxies\DelegateProxy\ProxiedDelegateTypeAttribute.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Argument.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\RecordCallHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\TrackLastCallHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\DependencyInjection\NSubContainer.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\SequenceChecking\SequenceFormatter.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\IArgumentFormatter.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\SequenceNumberGenerator.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IPendingSpecification.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\ArrayContentsArgumentMatcher.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\ReturnFromCustomHandlers.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ISubstituteStateFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\CouldNotSetReturnException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\SequenceChecking\InstanceTracker.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Callbacks\ConfiguredCallback.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\ISuppliedArgumentSpecificationsFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\SubstituteExtensions.Returns.Task.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallActions.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallSpecAndTarget.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallInfo.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\RobustThreadLocal.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\SubstituteException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\NullSubstituteReferenceException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Extensions\ReturnsForAllExtensions.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\ReturnConfiguredResultHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallRouterResolver.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IPropertyHelper.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\DefaultForType.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\ArgumentFormatter.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallSpecification.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\CannotCreateEventArgsException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallFormatter.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Proxies\CastleDynamicProxy\CastleDynamicProxyFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Extensions.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\ReturnResultForTypeHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\IDefaultChecker.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ReceivedCallsExceptionThrower.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\IRouteFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\AutoValues\AutoQueryableProvider.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallBaseConfiguration.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Raise.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\SubstituteExtensions.Received.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\SubstitutionContext.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IDefaultForType.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\MethodFormatter.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\SubstituteStateFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\ReturnAutoValue.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\CallRouterFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\IArgumentMatcher.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Extensions\ClearExtensions.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IEventHandlerRegistry.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\ReturnDefaultForReturnTypeHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\SubstituteState.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\SubstituteExtensions.When.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\DefaultChecker.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\ArgumentSpecificationFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\RouteFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\RecordCallSpecificationHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\ArgumentSpecificationsFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\ClearOptions.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IQueryResults.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Proxies\CastleDynamicProxy\CastleInvocationMapper.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallInfoFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\NotASubstituteException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\RouteAction.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallRouterProvider.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Proxies\CastleDynamicProxy\ProxyIdInterceptor.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\PropertyCallFormatter.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallSpecificationFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\PropertyHelper.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IProxyFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Route.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\ArgumentNotFoundException.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\ICallFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\IReceivedCallsExceptionThrower.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\ArgumentMatcher.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\CannotReturnNullforValueType.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\AutoValues\AutoSubstituteProvider.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Routing\Handlers\SetActionForCallHandler.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\Arguments\ISuppliedArgumentSpecifications.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Core\SubstituteFactory.cs" />
+    <Compile Include="Packages\net.tnrd.nsubstitute\Runtime\Exceptions\UnexpectedArgumentMatcherException.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Scripts\Scripts.asmdef" />
+    <None Include="Packages\net.tnrd.nsubstitute\Runtime\TNRD.NSubstitute.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -446,40 +609,12 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.47f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.YamlDotNet">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
+    <Reference Include="Castle.Core">
+      <HintPath>Library\PackageCache\net.tnrd.nsubstitute@449712b25a\Plugins\Castle.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Collections.LowLevel.ILSupport">
-      <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="unityplastic">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.7.1\Lib\Editor\unityplastic.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Plastic.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.7.1\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Plastic.Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.7.1\Lib\Editor\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="log4netPlastic">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.7.1\Lib\Editor\log4netPlastic.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.IonicZip">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.TextureAssets">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
+    <Reference Include="System.Diagnostics.EventLog">
+      <HintPath>Library\PackageCache\net.tnrd.nsubstitute@449712b25a\Plugins\System.Diagnostics.EventLog.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

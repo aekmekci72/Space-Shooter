@@ -1,6 +1,9 @@
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using System.Collections;
+using System.Collections.Generic;
+
 public class SampleTests
 {
     private PlayerController player;

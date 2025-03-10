@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerupHandler : MonoBehaviour
 {
-    private PlayerController player; 
+    [SerializeField] private PlayerController player; 
     private List<Powerup> activePowerups = new List<Powerup>();
 
     void Start()
@@ -28,12 +28,17 @@ public class PowerupHandler : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    public virtual void OnDestroy()
     {
         foreach (Powerup powerup in activePowerups)
         {
             powerup.RemoveEffect(player);
         }
         activePowerups.Clear();
+    }
+
+    public List<Powerup> GetActivePowerups()
+    {
+        return new List<Powerup>(activePowerups);
     }
 }
