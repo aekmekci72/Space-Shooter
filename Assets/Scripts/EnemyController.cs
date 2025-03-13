@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float xmoveSpeed = 0.5f;
     public float boundaryOffset = 0.5f;
     private float minY;
     private float maxY;
@@ -14,22 +15,39 @@ public class EnemyController : MonoBehaviour
     private float nextFireTime = 0f;
     Vector3 screenBounds;
     private PowerupSpawner powerupSpawner;
+    private PlayerController player;
     // Start is called before the first frame update
     void Start()
     {
         CalculateScreenBoundaries();
         powerupSpawner = FindObjectOfType<PowerupSpawner>();
+        player = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPosition = transform.position + new Vector3(0f, -moveSpeed*Time.deltaTime, 0f);
+        GameObject p = GameObject.Find("playerShip1_orange"); 
+        Vector3 newPosition = transform.position;
+
+        if (p.transform.position.x > transform.position.x)
+        {
+            newPosition += new Vector3(-xmoveSpeed * Time.deltaTime, -moveSpeed*Time.deltaTime, 0f);
+        }
+        else if (p.transform.position.x < transform.position.x)
+        {
+            newPosition += new Vector3(xmoveSpeed * Time.deltaTime, -moveSpeed*Time.deltaTime, 0f);
+        }
+
+        newPosition.x = Mathf.Clamp(newPosition.x, -2f, 2f);
         newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
         transform.position = newPosition;
         CheckShoot();
         if (transform.position.y <= minY)
         {
+            // deal damage to player
+            Debug.Log("player lost health");
+            player.health -= (float)1;
             Destroy(gameObject);
         }
     }
