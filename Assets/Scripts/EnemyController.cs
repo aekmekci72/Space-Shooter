@@ -14,11 +14,13 @@ public class EnemyController : MonoBehaviour
     private float nextFireTime = 0f;
     Vector3 screenBounds;
     private PowerupSpawner powerupSpawner;
+    private PlayerController player;
     // Start is called before the first frame update
     void Start()
     {
         CalculateScreenBoundaries();
         powerupSpawner = FindObjectOfType<PowerupSpawner>();
+        player = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,9 @@ public class EnemyController : MonoBehaviour
         CheckShoot();
         if (transform.position.y <= minY)
         {
+            // deal damage to player
+            Debug.Log("player lost health");
+            player.health -= (float)1;
             Destroy(gameObject);
         }
     }
