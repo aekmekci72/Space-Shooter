@@ -27,14 +27,14 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject player = GameObject.Find("playerShip1_orange"); 
+        GameObject p = GameObject.Find("playerShip1_orange"); 
         Vector3 newPosition = transform.position;
 
-        if (player.transform.position.x > transform.position.x)
+        if (p.transform.position.x > transform.position.x)
         {
             newPosition += new Vector3(-xmoveSpeed * Time.deltaTime, -moveSpeed*Time.deltaTime, 0f);
         }
-        else if (player.transform.position.x < transform.position.x)
+        else if (p.transform.position.x < transform.position.x)
         {
             newPosition += new Vector3(xmoveSpeed * Time.deltaTime, -moveSpeed*Time.deltaTime, 0f);
         }
