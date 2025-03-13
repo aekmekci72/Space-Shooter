@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 34881af8dba424dfc874095c41453bb3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - soundEffectSource: {instanceID: 0}
+  - <PlayerLaser>k__BackingField: {fileID: 8300000, guid: e5fffd175504e4379b58d75e51e3c184, type: 3}
+  - <EnemyLaser>k__BackingField: {fileID: 8300000, guid: 898fa3a19d13e46cb82affe7d2a44ccf, type: 3}
+  - <EnemyDamage>k__BackingField: {fileID: 8300000, guid: ac650695be2214e64b9ba7d16587c7af, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
