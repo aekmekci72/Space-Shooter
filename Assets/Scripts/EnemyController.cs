@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float xmoveSpeed = 1f;
     public float boundaryOffset = 0.5f;
     private float minY;
     private float maxY;
@@ -24,7 +25,19 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPosition = transform.position + new Vector3(0f, -moveSpeed*Time.deltaTime, 0f);
+        GameObject player = GameObject.Find("playerShip1_orange"); 
+        Vector3 newPosition = transform.position;
+
+        if (player.transform.position.x > transform.position.x)
+        {
+            newPosition += new Vector3(xmoveSpeed * Time.deltaTime, -moveSpeed*Time.deltaTime, 0f);
+        }
+        else if (player.transform.position.x < transform.position.x)
+        {
+            newPosition += new Vector3(-xmoveSpeed * Time.deltaTime, -moveSpeed*Time.deltaTime, 0f);
+        }
+
+        // newPosition.x = Mathf.Clamp(newPosition.x, -screenBounds.x + boundaryOffset, screenBounds.x - boundaryOffset);
         newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
         transform.position = newPosition;
         CheckShoot();
