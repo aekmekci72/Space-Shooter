@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
+using UnityEngine.SceneManagement;
 public class Ebullet : MonoBehaviour
 {
     public float speed = 10f;
     private Vector3 screenBounds;
+    private ServiceLocator _serviceLocator;
     // Start is called before the first frame update
     void Start()
     {
+        _serviceLocator = GameObject.Find("GameManager").GetComponent<ServiceLocator>();
+        _serviceLocator.AudioService.PlayEffect(_serviceLocator.AudioService.EnemyLaser);
         screenBounds= Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
@@ -33,6 +37,7 @@ public class Ebullet : MonoBehaviour
         {
             if (player.takingDamage){
                 player.health -= (float)1;
+                _serviceLocator.AudioService.PlayEffect(_serviceLocator.AudioService.PlayerDamage);
             }
             
             if (player.health<=0)
