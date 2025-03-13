@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
     [field: SerializeField] public AudioClip PlayerLaser { get; private set; }
     [field: SerializeField] public AudioClip EnemyLaser { get; private set; }
     [field: SerializeField] public AudioClip EnemyDamage { get; private set; }
+    [field: SerializeField] public AudioClip PlayerDamage { get; private set; }
     
 
     private AudioClip _chosenAudio;

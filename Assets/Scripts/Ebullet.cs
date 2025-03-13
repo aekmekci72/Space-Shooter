@@ -37,6 +37,7 @@ public class Ebullet : MonoBehaviour
         {
             if (player.takingDamage){
                 player.health -= (float)1;
+                _serviceLocator.AudioService.PlayEffect(_serviceLocator.AudioService.PlayerDamage);
             }
             
             if (player.health<=0)

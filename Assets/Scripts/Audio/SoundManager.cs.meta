@@ -7,7 +7,8 @@ MonoImporter:
   - soundEffectSource: {instanceID: 0}
   - <PlayerLaser>k__BackingField: {fileID: 8300000, guid: e5fffd175504e4379b58d75e51e3c184, type: 3}
   - <EnemyLaser>k__BackingField: {fileID: 8300000, guid: 898fa3a19d13e46cb82affe7d2a44ccf, type: 3}
-  - <EnemyDamage>k__BackingField: {fileID: 8300000, guid: 484ebe8fb9ed64c8cb30299563e81ae2, type: 3}
+  - <EnemyDamage>k__BackingField: {fileID: 8300000, guid: 6f72ce9bc9f444c678405e997c38aa37, type: 3}
+  - <PlayerDamage>k__BackingField: {fileID: 8300000, guid: 6f72ce9bc9f444c678405e997c38aa37, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

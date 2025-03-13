@@ -33,7 +33,6 @@ public class Bullet : MonoBehaviour
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy != null)
         {
-            _serviceLocator.AudioService.PlayEffect(_serviceLocator.AudioService.EnemyDamage);
             enemy.Die();
             Destroy(gameObject);
         }
