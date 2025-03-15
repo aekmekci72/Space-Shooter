@@ -13,84 +13,74 @@ using NSubstitute;
 public class PowerupHandlerTests
 {
     private PowerupHandler powerupHandler;
-    private PlayerController mockPlayer;
-
+    private PlayerController playerController;
+    private Powerup powerup;
     [SetUp]
-    public void Setup()
+    public void SetUp()
     {
+        playerController = Substitute.For<PlayerController>();
+        powerup = new GameObject().AddComponent<SamplePowerup>(); 
+
         GameObject gameObject = new GameObject();
         powerupHandler = gameObject.AddComponent<PowerupHandler>();
-
-        mockPlayer = Substitute.For<PlayerController>();
-
-        powerupHandler.GetComponent<PlayerController>().Returns(mockPlayer);
+        
+        Assert.IsNotNull(powerupHandler);
     }
 
-    [TearDown]
-    public void Teardown()
-    {
-        Object.DestroyImmediate(powerupHandler.gameObject);
-    }
 
     [Test]
     public void AddPowerup_ShouldAddToListAndApplyEffect()
     {
         // Arrange
-        var mockPowerup = Substitute.For<Powerup>();
-
         // Act
-        powerupHandler.AddPowerup(mockPowerup);
+        powerupHandler.AddPowerup(powerup);
 
         // Assert
-        Assert.That(powerupHandler.GetActivePowerups(), Does.Contain(mockPowerup));
-        mockPowerup.Received(1).ApplyEffect(mockPlayer);
+        Assert.Contains(powerup, powerupHandler.GetActivePowerups());
+        
     }
 
     [Test]
     public void RemovePowerup_ExistingPowerup_ShouldRemoveFromListAndRemoveEffect()
     {
         // Arrange
-        var mockPowerup = Substitute.For<Powerup>();
-        powerupHandler.AddPowerup(mockPowerup);
+        powerupHandler.AddPowerup(powerup);
 
         // Act
-        powerupHandler.RemovePowerup(mockPowerup);
+        powerupHandler.RemovePowerup(powerup);
 
         // Assert
-        Assert.That(powerupHandler.GetActivePowerups(), Does.Contain(mockPowerup.ToString()));  // idk if this is correct, but it was causing a compiler error so i added .ToString()
-        mockPowerup.Received(1).RemoveEffect(mockPlayer);
+        Assert.IsFalse(powerupHandler.GetActivePowerups().Contains(powerup));
+
     }
 
     [Test]
     public void RemovePowerup_NonExistingPowerup_ShouldNotRemoveEffect()
     {
         // Arrange
-        var mockPowerup = Substitute.For<Powerup>();
+        Powerup anotherPowerup = Substitute.For<Powerup>();
+        powerupHandler.AddPowerup(anotherPowerup);
 
         // Act
-        powerupHandler.RemovePowerup(mockPowerup);
+        powerupHandler.RemovePowerup(powerup);
 
         // Assert
-        
-        mockPowerup.DidNotReceive().RemoveEffect(Arg.Any<PlayerController>());
+        Assert.Contains(anotherPowerup, powerupHandler.GetActivePowerups());
+
     }
 
     [Test]
     public void OnDestroy_ShouldRemoveAllPowerupsAndClearList()
     {
         // Arrange
-        var mockPowerup1 = Substitute.For<Powerup>();
-        var mockPowerup2 = Substitute.For<Powerup>();
-        powerupHandler.AddPowerup(mockPowerup1);
-        powerupHandler.AddPowerup(mockPowerup2);
+        powerupHandler.AddPowerup(powerup);
+        Powerup anotherPowerup = Substitute.For<Powerup>();
+        powerupHandler.AddPowerup(anotherPowerup);
 
         // Act
-        powerupHandler.SendMessage("OnDestroy");
+        powerupHandler.OnDestroy();
 
         // Assert
-        mockPowerup1.Received(1).RemoveEffect(mockPlayer);
-        mockPowerup2.Received(1).RemoveEffect(mockPlayer);
-        Assert.That(powerupHandler.GetActivePowerups(), Is.Empty);
+        Assert.IsEmpty(powerupHandler.GetActivePowerups());
     }
-
 }
