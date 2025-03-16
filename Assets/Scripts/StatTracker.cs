@@ -29,14 +29,6 @@ public class StatTracker : Singleton<StatTracker>
     public void SpawnEvent(SpawnMessage message)
     {
         EnemiesSpawned++;
-        // if (message.enemySpawned == Enemy)
-        // {
-        //     EnemiesSpawned++;
-        // }
-        // else
-        // {
-        //     Debug.Log("Invalid state " + message + "received in SpawnEvent");
-        // }
     }
 
     public void PowerupEvent(PowerupMessage message)
