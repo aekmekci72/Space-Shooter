@@ -64,40 +64,4 @@ public class StatTrackerTests
         Assert.AreEqual(1, statTracker.PowerupsGained);
     }
 
-    // [Test]
-    // public void WaveStarted_LevelsClearedShouldStayZero()
-    // {
-    //     // Arrange
-    //     mockEnemySpawner = Substitute.For<EnemySpawner>();
-    //     enemySpawner.enemyFactory = mockFactory;
-    //     enemySpawner.waveManager = mockWaveManager;
-
-    //     LevelMessage testMessage = new LevelMessage(1);
-
-    //     // Act
-    //     mockEnemySpawner.StartWave(testMessage);
-
-    //     // Assert
-    //     Assert.AreEqual(0, statTracker.CurrentWave);
-    // }
-
-    // [Test]
-    // public void LevelCleared_ShouldIncrementLevelsCleared()
-    // {
-    //     // Arrange
-    //     // mockEnemySpawner = Substitute.For<EnemySpawner>();
-    //     // enemySpawner.enemyFactory = mockFactory;
-    //     // enemySpawner.waveManager = mockWaveManager;
-
-    //     // LevelMessage testMessage = new LevelMessage(2);
-
-    //     // Act
-    //     // mockEnemySpawner.StartWave(testMessage);
-    //     statTracker.CurrentWave = 1;
-
-    //     // Assert
-    //     Assert.AreEqual(1, statTracker.CurrentWave);
-
-    // }
-
 }
