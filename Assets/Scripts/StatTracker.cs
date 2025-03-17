@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StatTracker : Singleton<StatTracker>
-{
-    // public WaveManager waveManager;
-    
+{    
     public int EnemiesSpawned { get; private set; }
     public int PowerupsGained { get; private set; }
     public int EnemiesKilled { get; private set; }

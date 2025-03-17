@@ -14,25 +14,19 @@ using NSubstitute;
 public class StatTrackerTests
 {
     private StatTracker statTracker;
-
-    private Enemy enemy;
-    private EnemySpawner mockEnemySpawner;
-    // private EnemyFactory mockFactory;
-    private WaveManager mockWaveManager;
+    private PowerupMessenger mockPowerupMessenger;
+    private KillMessenger mockKillMessenger;
+    // private Messenger mockMessenger;
+    private MessageManager mockMessageManager;
+    private Powerup mockPowerup;
 
     [SetUp]
     public void Setup()
     {
         GameObject gameObject = new GameObject();
         statTracker = gameObject.AddComponent<StatTracker>();
-        enemy = gameObject.AddComponent<Enemy>();
-
-        // mockEnemyType = Substitute.For<EnemyType>();
-        mockPowerupSpawner = Substitute.For<PowerupSpawner>();
-
-        // Assign mock dependencies to spawner
-        // enemy.enemyType = mockEnemyType;
-        // enemy.powerupSpawner = mockPowerupSpawner;
+        // mockMessenger = Substitute.For<Messenger>();
+        mockMessageManager = Substitute.For<MessageManager>();
 
         statTracker.Start();
     }
@@ -41,12 +35,11 @@ public class StatTrackerTests
     public void EnemyKilled_ShouldIncrementEnemiesKilled()
     {
         // Arrange
-        // EnemyType enemyType = EnemyType.EnemyRed;
-        // enemy.enemyType = enemyType;
+        mockKillMessenger = Substitute.For<KillMessenger>();
+        var killMessage = new KillMessage(EnemyType.EnemyBlue);
 
         // Act
-        // enemy.Die();
-        statTracker.KilledEvent(new KillMessage());
+        statTracker.KilledEvent(killMessage);
 
         // Assert
         Assert.AreEqual(1, statTracker.EnemiesKilled);
@@ -56,16 +49,11 @@ public class StatTrackerTests
     public void PowerupGained_ShouldIncrementPowerupsGained()
     {
         // Arrange
-        // powerupHandler = gameObject.AddComponent<PowerupHandler>();
-        // mockPlayer = Substitute.For<PlayerController>();
-
-        // powerupHandler.GetComponent<PlayerController>().Returns(mockPlayer);
-        var mockPowerup = Substitute.For<Powerup>();
-        // powerupHandler.AddPowerup(mockPowerup);
+        mockPowerupMessenger = Substitute.For<PowerupMessenger>();
+        mockPowerup = Substitute.For<Powerup>();
 
         // Act
-        // powerupHandler.AddPowerup(mockPowerup);
-        statTracker.PowerupEvent(new PowerupMessage());
+        statTracker.PowerupEvent(new PowerupMessage(mockPowerup));
 
         // Assert
         Assert.AreEqual(1, statTracker.PowerupsGained);
