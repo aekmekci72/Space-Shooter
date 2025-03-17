@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StatTracker : Singleton<StatTracker>
-{
-    // public WaveManager waveManager;
-    
+{    
     public int EnemiesSpawned { get; private set; }
     public int PowerupsGained { get; private set; }
     public int EnemiesKilled { get; private set; }
@@ -29,14 +27,6 @@ public class StatTracker : Singleton<StatTracker>
     public void SpawnEvent(SpawnMessage message)
     {
         EnemiesSpawned++;
-        // if (message.enemySpawned == Enemy)
-        // {
-        //     EnemiesSpawned++;
-        // }
-        // else
-        // {
-        //     Debug.Log("Invalid state " + message + "received in SpawnEvent");
-        // }
     }
 
     public void PowerupEvent(PowerupMessage message)
