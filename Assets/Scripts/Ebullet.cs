@@ -24,11 +24,11 @@ public class Ebullet : MonoBehaviour
         if (transform.position.x > screenBounds.x || transform.position.x < -screenBounds.x ||
             transform.position.y > screenBounds.y || transform.position.y < -screenBounds.y)
         {
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
         }
     
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("here");
         PlayerController player = collision.GetComponent<PlayerController>();
@@ -37,16 +37,16 @@ public class Ebullet : MonoBehaviour
         {
             if (player.takingDamage){
                 player.health -= (float)1;
-                _serviceLocator.AudioService.PlayEffect(_serviceLocator.AudioService.PlayerDamage);
+                //_serviceLocator.AudioService.PlayEffect(_serviceLocator.AudioService.PlayerDamage);
             }
             
             if (player.health<=0)
             {
                 Debug.Log("player dead");
-                GameStateManager.Instance.SetState(new DeathScreenState());
+                //GameStateManager.Instance.SetState(new DeathScreenState());
             }
 
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
         }
     }
 }
