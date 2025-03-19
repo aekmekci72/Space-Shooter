@@ -11,7 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NSubstitute;
 
-public class EnemyTests
+public class EnemySpawningTests
 {
     private Enemy enemy;
 
@@ -77,5 +77,6 @@ public class EnemyTests
         // Assert
         Assert.That(enemy, Is.InstanceOf<EnemyRed>());
         Assert.AreEqual(spawnPosition, enemy.transform.position);
+
     }
 }

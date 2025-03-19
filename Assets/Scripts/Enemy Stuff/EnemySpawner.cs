@@ -34,10 +34,10 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < enemiesToSpawn; i++)
         {
             Vector3 spawnPosition = new Vector3(Random.Range(-2.5f, 2.5f), 5.5f, 0);
-            EnemyType randomType = (EnemyType)Random.Range(0, 2);
+            EnemyType randomType = (EnemyType)Random.Range(0, 1);
             
             // MessageManager.Instance.spawnMessenger.SendMessage(new SpawnMessage(randomType));
-            Debug.Log("Spawning enemy " + randomType + " at position " + spawnPosition);
+            // Debug.Log("Spawning enemy " + randomType + " at position " + spawnPosition);
 
             enemyFactory.CreateEnemy(randomType, spawnPosition);
 

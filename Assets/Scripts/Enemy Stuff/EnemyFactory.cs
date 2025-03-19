@@ -10,8 +10,10 @@ public class EnemyFactory : MonoBehaviour
 
     public Enemy CreateEnemy(EnemyType type, Vector3 position)
     {
+        Debug.Log("eBluePrefab: " + eBluePrefab);
+        Debug.Log("eRedPrefab: " + eRedPrefab);
+
         GameObject enemyObj = null;
-    
 
         switch (type)
         {
@@ -21,11 +23,19 @@ public class EnemyFactory : MonoBehaviour
             case EnemyType.EnemyRed:
                 enemyObj = Instantiate(eRedPrefab, position, Quaternion.identity);
                 break;
+            default:
+                Debug.LogError("EnemyFactory: Unknown enemy type: " + type);
+                return null;
         }
 
-        Enemy enemy = enemyObj.GetComponent<Enemy>();
-        // MessageManager.Instance.spawnMessenger.SendMessage(new SpawnMessage(enemy));
-        // enemy.Initialize();
-        return enemy;
+        if (enemyObj != null)
+        {
+            Enemy enemy = enemyObj.GetComponent<Enemy>();
+            return enemy;
+        }
+        else
+        {
+            return null;
+        }
     }
 }
